@@ -1,0 +1,30 @@
+# Android fstab file.
+#<src>                <mnt_point>         <type>    <mnt_flags and options>                 <fs_mgr_flags>
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+
+/dev/misc-sd          /preloader          emmc      flags=display="Preloader";backup=1
+/dev/block/mmcblk0    /mbr                emmc      flags=display="MBR";backup=1
+emmc@ebr1             /ebr1               emmc      flags=display="EBR";backup=1
+/dev/block/mmcblk0    /pmt                emmc      flags=display="PMT";backup=1
+/dev/block/mmcblk0    /pro_info           emmc      flags=display="PRO_INFO";backup=1
+/dev/block/mmcblk0    /nvram              emmc      flags=display="NVRAM";backup=1
+/dev/block/mmcblk0    /seccfg             emmc      flags=display="SECCFG";backup=1
+/dev/block/mmcblk0    /uboot              emmc      flags=display="UBOOT";backup=1
+/dev/block/mmcblk0    /bootimg            emmc      flags=display="boot";backup=1;wipeingui
+/dev/block/mmcblk0    /recovery           emmc      flags=display="recovery";backup=1
+/dev/block/mmcblk0    /misc               emmc      flags=display="misc";backup=1
+/dev/block/mmcblk0    /logo               emmc      flags=display="logo";backup=1
+/dev/block/mmcblk0    /ebr2               emmc      flags=display="EBR2";backup=1
+/dev/block/mmcblk0    /expdb              emmc      flags=display="expdb";backup=1le
+/dev/block/mmcblk0    /bmtpool            emmc      flags=display="bmtpool";backup=1
+emmc@fat              /fat                emmc      flags=display="FAT";backup=1
+emmc@sec_ro           /sec_ro             emmc      flags=display="SEC_RO";backup=1
+emmc@android         /system              ext4      flags=display="system";backup=1;;wipeingui;wipeduringfactoryreset
+emmc@cache           /cache               ext4      flags=display="cache";backup=1;;wipeingui;canbewiped;wipeduringfactoryreset
+emmc@usrdata         /data                ext4      flags=display="data";backup=1;;wipeingui;storage
+emmc@protect_f        /protect_f          ext4      flags=display="IMEI1";backup=1
+emmc@protect_s        /protect_s          ext4      flags=display="IMEI2";backup=1
+/devices/platform/mtk-msdc.1/mmc_host  /sdcard1      vfat      flags=disolay="sdcard2";storage;removable
+/devices/platform/mtk-msdc.0/mmc_host  /sdcard       vfat      flags=disolay="sdcard";storage
+/devices/platform/musbfsh_hdrc        /mnt/usbotg   vfat      flags=disolay="otg";storage;removable lun=/sys/class/android_usb/f_mass_storage/lun1/file
