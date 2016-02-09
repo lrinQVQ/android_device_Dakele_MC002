@@ -1,9 +1,22 @@
+
+#
+# Copyright (C) 2015 The CyanogenMod Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 BOARD_VENDOR                       := Dakele
 
 MC002_PATH                         := device/Dakele/MC002
-
-# ReleaseTools
-#TARGET_RELEASETOOLS_EXTENSIONS     := $(MC002_PATH)/releasetools
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME       := MT6589
@@ -11,7 +24,6 @@ TARGET_NO_BOOTLOADER               := true
 
 # Platform
 TARGET_BOARD_PLATFORM              := mt6589
-#TARGET_BOARD_PLATFORM_GPU          := POWERVR_SGX544MP
 
 # Architecture
 TARGET_ARCH                        := arm
@@ -30,10 +42,6 @@ BOARD_KERNEL_BASE                  := 0x10000000
 BOARD_KERNEL_PAGESIZE              := 2048
 BOARD_MKBOOTIMG_ARGS               := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_PREBUILT_KERNEL             := $(MC002_PATH)/kernel
-#TARGET_KERNEL_SOURCE               := kernel/Dakele/MC002
-#TARGET_KERNEL_ARCH                 := arm
-#TARGET_KERNEL_CONFIG               := cm_MC002_defconfig
-#TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 
 # Filesystem
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 0x2780000
@@ -44,32 +52,6 @@ TARGET_USERIMAGES_USE_EXT4         := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE  := ext4
 BOARD_FLASH_BLOCK_SIZE             := 131072
 BOARD_USES_MMCUTILS                := true
-BOARD_HAS_LARGE_FILESYSTEM         := true
-# Camera
-USE_CAMERA_STUB                    := true
-
-# Bluetooth
-BOARD_HAVE_BLUETOOTH               := true
-
-# Wifi
-BOARD_WPA_SUPPLICANT_DRIVER        := WEXT
-BOARD_P2P_SUPPLICANT_DRIVER        := NL80211
-WIFI_DRIVER_MODULE_PATH            := /system/lib/modules/
-WIFI_DRIVER_MODULE_NAME            := wlan_mt6628
-BOARD_WLAN_DEVICE                  := mt6628
-HAVE_CUSTOM_WIFI_DRIVER_2          := true
-HAVE_INTERNAL_WPA_SUPPLICANT_CONF  := true
-HAVE_CUSTOM_WIFI_HAL               := mediatek
-WPA_SUPPLICANT_VERSION             := VER_0_6_X
-P2P_SUPPLICANT_VERSION             := VER_0_8_X
-
-# Sensors
-BOARD_VENDOR_USE_AKMD              := true
-BOARD_VENDOR_USE_AKMD              := akmd8963
-
-#EGL configuration
-BOARD_EGL_CFG                      := $(MC002_PATH)/configs/egl.cfg
-USE_OPENGL_RENDERER                := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB              := $(MC002_PATH)/recovery.fstab
