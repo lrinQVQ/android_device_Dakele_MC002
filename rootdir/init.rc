@@ -1,21 +1,12 @@
-# Copyright (C) 2012 The Android Open Source Project
-#
-# IMPORTANT: Do not create world writable files or directories.
-# This is a common source of Android security bugs.
-#
-
-import /init.environ.rc
-import /init.usb.rc
-import /init.${ro.hardware}.rc
-import /init.carrier.rc
+import /init.recovery.${ro.hardware}.rc
 
 on early-init
     start ueventd
 
 on init
     export PATH /sbin
+	 export LD_LIBRARY_PATH .:/sbin
     export ANDROID_ROOT /system
-    export LD_LIBRARY_PATH .:/sbin
     export ANDROID_DATA /data
     export EXTERNAL_STORAGE /sdcard
 
