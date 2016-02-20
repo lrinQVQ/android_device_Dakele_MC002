@@ -24,6 +24,7 @@ ARCH_ARM_HAVE_TLS_REGISTER         := true
 
 # Init
 #TARGET_PROVIDES_INIT_RC            := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH     := /sys/class/android_usb/f_mass_storage/lun1/file
 # Kernel
 BOARD_KERNEL_CMDLINE               := 
 BOARD_KERNEL_BASE                  := 0x10000000
@@ -37,7 +38,7 @@ TARGET_PREBUILT_KERNEL             := $(MC002_PATH)/kernel
 
 # Filesystem
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 0x2780000
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x2780000
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x2d80000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 0x4780000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x34f80000
 TARGET_USERIMAGES_USE_EXT4         := true
@@ -78,6 +79,7 @@ BOARD_HAS_NO_SELECT_BUTTON         := true
 TARGET_PREBUILT_RECOVERY_KERNEL    := $(MC002_PATH)/kernel
 
 # TWRP recovery
+TARGET_RECOVERY_INITRC             := $(MC002_PATH)/rootdir/init.rc
 DEVICE_RESOLUTION                  := 720x1280
 RECOVERY_GRAPHICS_USE_LINELENGTH   := true
 TW_NO_EXFAT                        := true
@@ -86,7 +88,7 @@ RECOVERY_VARIANT                   := twrp
 TW_NO_REBOOT_BOOTLOADER            := true
 TW_INTERNAL_STORAGE_PATH           := "/storage/sdcard0"
 TW_INTERNAL_STORAGE_MOUNT_POINT    := "sdcard"
-TW_INTERNAL_STORAGE_PATH           := "/storage/sdcard1"
-TW_INTERNAL_STORAGE_MOUNT_POINT    := "sdcard1"
+TW_INTERNAL_STORAGE_PATH           := "/storage/sdcard2"
+TW_INTERNAL_STORAGE_MOUNT_POINT    := "sdcard2"
 # inherit from the proprietary version
 -include vendor/Dakele/MC002/BoardConfigVendor.mk
