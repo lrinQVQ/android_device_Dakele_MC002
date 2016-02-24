@@ -3,16 +3,4 @@
    "repository": "android_device_Dakele_MC002",
    "target_path": "device/Dakele/MC002"
  },
- {
-   "repository": "android_platform_hardware_akm",
-   "target_path": "hardware/akm"
- },
- {
-   "repository": "android_kernel_Dakele_MC002",
-   "target_path": "kernel/Dakele/MC002"
- },
- {
-   "repository": "proprietary_vendor_Dakele",
-   "target_path": "vendor/Dakele/MC002"
- },
 ]

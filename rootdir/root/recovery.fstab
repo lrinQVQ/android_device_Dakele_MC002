@@ -26,4 +26,4 @@ emmc@cache            /cache              ext4
 emmc@usrdata          /data               ext4
 /devices/platform/mtk-msdc.1/mmc_host  /storage/sdcard1      vfat
 /devices/platform/mtk-msdc.0/mmc_host  /storage/sdcard0       vfat
-/devices/platform/musbfsh_hdrc        /mnt/usbotg   vfat lun=/sys/class/android_usb/f_mass_storage/lun1/file
+/devices/platform/mt_usb        /mnt/usbotg   auto lun=/sys/class/android_usb/f_mass_storage/lun1/file

@@ -25,6 +25,6 @@ emmc@cache           /cache               ext4      flags=display="cache";backup
 emmc@usrdata         /data                ext4      flags=display="data";backup=1;;wipeingui;storage
 emmc@protect_f        /protect_f          ext4      flags=display="IMEI1";backup=1
 emmc@protect_s        /protect_s          ext4      flags=display="IMEI2";backup=1
-/devices/platform/mtk-msdc.1/mmc_host  /sdcard2      vfat      flags=disolay="sdcard2";storage;removable
-/devices/platform/mtk-msdc.0/mmc_host  /sdcard       vfat      flags=disolay="sdcard";storage
-/devices/platform/musbfsh_hdrc        /mnt/usbotg   vfat      flags=disolay="otg";storage;removable lun=/sys/class/android_usb/f_mass_storage/lun1/file
+/devices/platform/mtk-msdc.1/mmc_host  /sdcard1      vfat      flags=disolay="sdcard2";storage;removable
+/devices/platform/mtk-msdc.0/mmc_host  /sdcard0      vfat      flags=disolay="sdcard";storage
+/devices/platform/mt_usb        /mnt/usbotg   auto      flags=disolay="otg";storage;removable lun=/sys/class/android_usb/f_mass_storage/lun1/file

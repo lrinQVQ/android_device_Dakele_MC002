@@ -18,12 +18,13 @@ PRODUCT_COPY_FILES += \
 
 # Recovey
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/twrp.fstab:recovery/root/etc/twrp.fstab \
-    $(LOCAL_PATH)/rootdir/sec.ko:root/sec.ko \
-    $(LOCAL_PATH)/rootdir/init.rc:root/init.rc \
-    $(LOCAL_PATH)/rootdir/init.environ.rc:root/init.environ.rc \
-    $(LOCAL_PATH)/rootdir/init.usb.rc:root/init.usb.rc \
-    $(LOCAL_PATH)/rootdir/ueventd.rc:root/ueventd.rc \
+    $(LOCAL_PATH)/rootdir/root/twrp.fstab:recovery/root/etc/twrp.fstab \
+    $(LOCAL_PATH)/rootdir/root/sec.ko:recovery/root/sec.ko \
+
+# Audio
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
+    $(LOCAL_PATH)/audio/audio_effects.conf:system/etc/audio_effects.conf \
 
 $(call inherit-product, build/target/product/full.mk)
 

@@ -29,7 +29,7 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH     := /sys/class/android_usb/f_mass_storage/lun
 BOARD_KERNEL_CMDLINE               := 
 BOARD_KERNEL_BASE                  := 0x10000000
 BOARD_KERNEL_PAGESIZE              := 2048
-BOARD_MKBOOTIMG_ARGS               := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
+BOARD_MKBOOTIMG_ARGS               := --kernel offset 0x00008000 --ramdisk offset 0x01000000 --tags_offset 0x00000100
 TARGET_PREBUILT_KERNEL             := $(MC002_PATH)/kernel
 #TARGET_KERNEL_SOURCE               := kernel/Dakele/MC002
 #TARGET_KERNEL_ARCH                 := arm
@@ -42,6 +42,7 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x2d80000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 0x4780000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x34f80000
 TARGET_USERIMAGES_USE_EXT4         := true
+BOARD_CACHEIMAGE_PARTITION_SIZE    := 0x2d180000
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE  := ext4
 BOARD_FLASH_BLOCK_SIZE             := 131072
 BOARD_USES_MMCUTILS                := true
@@ -51,6 +52,7 @@ USE_CAMERA_STUB                    := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH               := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(MC002_PATH)/bluetooth
 
 # Wifi
 BOARD_WPA_SUPPLICANT_DRIVER        := WEXT
@@ -68,18 +70,19 @@ P2P_SUPPLICANT_VERSION             := VER_0_8_X
 BOARD_VENDOR_USE_AKMD              := true
 BOARD_VENDOR_USE_AKMD              := akmd8963
 
-#EGL configuration
+TARGET_NO_FACTORYIMAGE             := true
+# EGL configuration
 BOARD_EGL_CFG                      := $(MC002_PATH)/configs/egl.cfg
 USE_OPENGL_RENDERER                := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB              := $(MC002_PATH)/recovery.fstab
+TARGET_RECOVERY_FSTAB              := $(MC002_PATH)/rootdir/root/recovery.fstab
 TARGET_RECOVERY_PIXEL_FORMAT       := "RGBX_8888"
 BOARD_HAS_NO_SELECT_BUTTON         := true
 TARGET_PREBUILT_RECOVERY_KERNEL    := $(MC002_PATH)/kernel
 
 # TWRP recovery
-TARGET_RECOVERY_INITRC             := $(MC002_PATH)/rootdir/init.rc
+TARGET_RECOVERY_INITRC             := $(MC002_PATH)/rootdir/root/init.rc
 DEVICE_RESOLUTION                  := 720x1280
 RECOVERY_GRAPHICS_USE_LINELENGTH   := true
 TW_NO_EXFAT                        := true
